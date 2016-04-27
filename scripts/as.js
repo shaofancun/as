@@ -29,7 +29,6 @@ var loading={
 		$('.loadingbox').remove();
 	}
 }
-
 //alert
 function nAlert(msg,callBack){
     var box=$(".alert_box");
