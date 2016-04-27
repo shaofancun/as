@@ -6,7 +6,6 @@ $(function(){
 		$('body').css({"width":w,"height":h});
 		$('img').width(w-90);
 		$('.title img').width(w-60);
-		
 	}
 })
 //ajax动画
