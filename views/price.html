@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<title>AS品牌开业大增礼</title>
+	<link rel="stylesheet" href="../css/cj.min.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="get_bg">
+	<!--用户资料-->
+	<section class="info">
+		<img src="../images/toux.jpg"/>
+		<p>深呼吸的自由</p>
+	</section>
+	<!--用户资料 /-->
+	<!--获奖内容-->
+	<section class="price_box">
+		<div class="img">
+			<img src="../images/price.jpg" width="100%"/>
+		</div>
+		<div class="fr">
+			<p class="gray">深呼吸的自由获得的奖品是</p>
+			<p class="zcolor">一套日式陶瓷碗勺礼品套装</p>
+		</div>
+	</section>
+	<!--获奖内容 /-->
+	<!--地址-->
+	<section class="address">领奖地址</section>
+	<div class="address_list">
+		<i class="close"></i>
+		<ul>
+			<li>
+				<h2 onclick="map(118.949721,28.974973,'AS线下体验馆','衢州市衢江区沈家振兴中路95号')">衢州市衢江区沈家振兴中路95号 AS线下体验馆</h2>
+				<p><a href="tel:18858445644">联系电话：18858445644</a></p>
+			</li>
+			<li>
+				<h2 onclick="map(119.963201,30.054741,'AS线下体验馆','杭州市富阳区桂花路50-1')">杭州市富阳区桂花路50-1 AS线下体验馆</h2>
+				<p><a href="tel:13666641057">联系电话：13666641057</a></p>
+			</li>
+			<li>
+				<h2 onclick="map(117.982215,28.447062,'AS线下体验馆','江西上饶信江东路南门口')">江西上饶信江东路南门口 AS线下体验馆</h2>
+				<p><a href="tel:15579378802">联系电话：15579378802</a></p>
+			</li>
+			<li>
+				<h2 onclick="map(117.931103,28.438883,'AS线下体验馆','江西上饶市上饶县旭日南大道122号')">江西上饶市上饶县旭日南大道122号 AS线下体验馆</h2>
+				<p><a href="tel:13755346486">联系电话：13755346486</a></p>
+			</li>
+			<li>
+				<h2 onclick="map(118.197457,28.444584,'AS线下体验馆','上饶广丰区新鸟林街33号')">江西上饶广丰区新鸟林街33号 AS线下体验馆</h2>
+				<p><a href="tel:13307030368">联系电话：13307030368</a></p>
+			</li>
+			<li>
+				<h2 onclick="map(117.215207,28.291282,'AS线下体验馆','贵溪市金三角北大街146号')">贵溪市金三角北大街146号 AS线下体验馆</h2>
+				<p><a href="tel:18607013712">联系电话：18607013712</a></p>
+			</li>
+			<li>
+				<h2 onclick="map(0,0,'AS线下体验馆','玉山县步行街东4栋4号')">玉山县步行街东4栋4号 AS线下体验馆</h2>
+				<p><a href="tel:18279330611">联系电话：18279330611</a></p>
+			</li>
+		</ul>
+	</div>
+	<!--地址 /-->
+	<!--发放奖品-->
+	<section class="get_price">
+		<span class="tip">工作人员区域</span>
+		下列按钮是工作人员确认您有无领奖资格的凭证，请领奖时向工作人员出示该页面。如若误点，将无法领取奖品，敬请留意。
+		<div class="button">
+			<button type="button" class="btn" id="get">发放奖品</button>
+			<div class="d"></div>
+		</div>
+		<p>待发放奖品 <span class="zcolor">1</span> 件</p>
+	</section>
+	<!--发放奖品 /-->
+</body>
+</html>
+<script src="../vender/jquery/jquery-1.11.1.js"></script>
+<script src="../scripts/as.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>	
+var shareImg = '';		// 分享图标
+var sharetitle = '';		// 分享标题
+var sharelink = '';		// 分享链接
+
+wx.config({
+	debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	appId : 'wxd4f01acbd1f6da89', // 必填，公众号的唯一标识
+	timestamp : '1461129429', // 必填，生成签名的时间戳
+	nonceStr : 'pVgmGdxMVDByJc3l', // 必填，生成签名的随机串
+	signature : '56179e500eb44a60bb4dc0ff466b1b4fec024466',// 必填，签名，见附录1
+	jsApiList : ['onMenuShareTimeline','openLocation']
+});
+
+wx.ready(function(){
+	initWeiXin();
+});
+function initWeiXin(){
+	//分享到朋友圈
+	wx.onMenuShareTimeline({
+		title : sharetitle, 
+		link : sharelink, 
+		imgUrl : shareImg, 
+		success : function() {
+			// 用户确认分享后执行的回调函数
+		},
+		cancel : function() {
+			// 用户取消分享后执行的回调函数
+		}
+	});
+}
+//跳转地图
+function map(lo,la,name,address){
+	wx.openLocation({
+      latitude: lo,
+      longitude: la,
+      name: name,
+      address: address,
+      scale: 14
+    });
+}
+</script>
+
